@@ -1,19 +1,25 @@
 package entidades;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import utils.Datos;
 import utils.Utilidades;
 import validaciones.Validaciones;
 
-public class DatosPersona {
+public class DatosPersona implements Comparable<DatosPersona> {
 	private long id;
 	private String nombre;
 	private String telefono;
 	private LocalDate fechaNac;
 
-	private Documentacion nifnie; //Examen 2 Ejercicio 3.2
+	private Documentacion nifnie; // Examen 2 Ejercicio 3.2
 
 	public DatosPersona(long id, String nombre, String telefono, LocalDate fechaNac) {
 		super();
@@ -22,8 +28,8 @@ public class DatosPersona {
 		this.telefono = telefono;
 		this.fechaNac = fechaNac;
 	}
-	
-	//Examen 2 Ejercicio 3.2
+
+	// Examen 2 Ejercicio 3.2
 	public DatosPersona(long id, String nombre, String telefono, LocalDate fechaNac, Documentacion nifnie) {
 		super();
 		this.id = id;
@@ -134,4 +140,65 @@ public class DatosPersona {
 		return ret;
 	}
 
+//Ejercicio 1 Examen 9 
+	// apartado a)
+	public String data() {
+		return "" + this.getId() + "|" + this.getNombre() + "|" + this.telefono + "|"
+				+ this.getFechaNac().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "|"
+				+ this.getNifnie().mostrar();
+	}
+
+	// apartado c)
+
+	public static void recorrerPersonas() {
+		String path = "atletas_alfabetico.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		ComparadorAlfabetico compare = null;
+		try {
+			try {
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
+				for (DatosPersona dp : Datos.PERSONAS) {
+					compare.nombresOrdenados();
+					buffer.println(dp.data());
+				}
+
+			} finally {
+				if (buffer != null) {
+					buffer.close();
+				}
+				if (escritor != null) {
+					escritor.close();
+				}
+			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
+		}
+	}
+
+//Ejercicio 2 Examen 9
+	// apartado a)
+	@Override
+	public int compareTo(DatosPersona o) {
+		if (this.fechaNac.compareTo(o.fechaNac) == 0) {
+			// aqui desempatamos
+			return this.getNifnie().compareTo(o.getNifnie());
+		} else
+			return this.fechaNac.compareTo(o.fechaNac);
+	}
+
+	// apartado b)
+	public static void insertarPersonas() {
+		for (DatosPersona dp : Datos.PERSONAS) {
+			
+			//no me dio tiempo a seguir con esto
+		}
+	}
 }
