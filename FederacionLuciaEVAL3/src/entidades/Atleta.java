@@ -14,7 +14,7 @@ public class Atleta extends Participante {
 	private DatosPersona persona;
 
 	public Atleta(long id, int dorsal, char calle, long idAtleta, float altura, float peso) {
-		super(id, dorsal, calle);
+		super();
 		this.idAtleta = idAtleta;
 		this.altura = altura;
 		this.peso = peso;
@@ -22,7 +22,7 @@ public class Atleta extends Participante {
 	}
 
 	public Atleta(long id, int dorsal, char calle, long idAtleta, float altura, float peso, DatosPersona dp) {
-		super(id, dorsal, calle);
+		super();
 		this.idAtleta = idAtleta;
 		this.altura = altura;
 		this.peso = peso;
@@ -38,7 +38,7 @@ public class Atleta extends Participante {
 	}
 
 	public Atleta(long idParticipante, Atleta a, int dorsal, char calle) {
-		super(idParticipante, dorsal, calle);
+		super();
 		this.idAtleta = a.idAtleta;
 		this.altura = a.altura;
 		this.peso = a.peso;

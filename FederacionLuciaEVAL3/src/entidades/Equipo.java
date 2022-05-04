@@ -29,7 +29,7 @@ public class Equipo extends Participante {
 	}
 
 	public Equipo(long idParticipante, Equipo e, int dorsal, char calle) {
-		super(idParticipante, dorsal, calle);
+		super();
 		this.idEquipo = e.idEquipo;
 		this.nombre = e.nombre;
 		this.anioinscripcion = e.anioinscripcion;
