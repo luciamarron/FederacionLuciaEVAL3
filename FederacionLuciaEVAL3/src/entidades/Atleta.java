@@ -10,15 +10,17 @@ public class Atleta extends Participante {
 	private long idAtleta;
 	private float altura;
 	private float peso;
+	private String nombreAtleta;
 
 	private DatosPersona persona;
 
-	public Atleta(long id, int dorsal, char calle, long idAtleta, float altura, float peso) {
+	public Atleta(long id, int dorsal, char calle, long idAtleta, float altura, float peso,String nombreAtleta) {
 		super();
 		this.idAtleta = idAtleta;
 		this.altura = altura;
 		this.peso = peso;
 		this.persona = Datos.buscarPersonaPorId(id);
+		this.nombreAtleta = nombreAtleta;
 	}
 
 	public Atleta(long id, int dorsal, char calle, long idAtleta, float altura, float peso, DatosPersona dp) {
@@ -43,6 +45,10 @@ public class Atleta extends Participante {
 		this.altura = a.altura;
 		this.peso = a.peso;
 		this.persona = Datos.buscarPersonaPorId(a.idAtleta);
+	}
+
+	public Atleta() {
+
 	}
 
 	@Override
@@ -73,6 +79,20 @@ public class Atleta extends Participante {
 
 	public DatosPersona getPersona() {
 		return this.persona;
+	}
+
+	
+
+	public void setPersona(DatosPersona persona) {
+		this.persona = persona;
+	}
+
+	public String getNombreAtleta() {
+		return nombreAtleta;
+	}
+
+	public void setNombreAtleta(String nombreAtleta) {
+		this.nombreAtleta = nombreAtleta;
 	}
 
 	// Examen 5 Ejercicio 5

@@ -142,4 +142,5 @@ public class Equipo extends Participante {
 		return ret;
 	}
 
+
 }

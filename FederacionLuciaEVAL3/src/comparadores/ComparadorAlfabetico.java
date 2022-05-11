@@ -1,20 +1,20 @@
-package entidades;
+package comparadores;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import entidades.DatosPersona;
 import utils.Datos;
 
-public class ComparadorAlfabetico implements Comparator<DatosPersona> {
+public class ComparadorAlfabetico implements Comparator<DatosPersona>{
 
 	@Override
-	public int compare(DatosPersona dp1, DatosPersona dp2) {
-
-		return dp1.getNombre().compareToIgnoreCase(dp2.getNombre());
+	public int compare(DatosPersona o1, DatosPersona o2) {
+		return o1.getNombre().compareTo(o2.getNombre());
 	}
-
+	
 	public void nombresOrdenados() {
 		LinkedList<DatosPersona> ret = new LinkedList<DatosPersona>();
 		
@@ -27,4 +27,5 @@ public class ComparadorAlfabetico implements Comparator<DatosPersona> {
 		
 
 	}
+
 }

@@ -1,6 +1,7 @@
 package validaciones;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -157,7 +158,7 @@ public class Validaciones {
 		return (pureza >= 0.0F && pureza <= 100.0F);
 	}
 
-	public static boolean validarFecha(LocalDate fechaMin) {
+	public static boolean validarFecha(Date fecha) {
 		// TODO Esbozo de método generado automáticamente
 		return true;
 	}
