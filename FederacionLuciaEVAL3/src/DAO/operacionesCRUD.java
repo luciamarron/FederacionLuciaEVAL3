@@ -1,4 +1,4 @@
-package entidades;
+package DAO;
 
 import java.util.Collection;
 

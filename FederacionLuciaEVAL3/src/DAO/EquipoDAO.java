@@ -11,7 +11,6 @@ import java.util.List;
 import entidades.Atleta;
 import entidades.DatosPersona;
 import entidades.Equipo;
-import entidades.operacionesCRUD;
 import utils.ConexBD;
 import utils.Datos;
 
