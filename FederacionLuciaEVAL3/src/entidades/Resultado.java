@@ -24,6 +24,10 @@ public class Resultado {
 		this.bronce = bronce;
 	}
 
+	public Resultado() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -60,7 +64,7 @@ public class Resultado {
 		return definitivo;
 	}
 
-	private void setDefinitivo(boolean definitivo) {
+	public void setDefinitivo(boolean definitivo) {
 		this.definitivo = definitivo;
 	}
 

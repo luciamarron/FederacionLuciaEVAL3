@@ -1,9 +1,11 @@
 package utils;
 
+import java.text.DecimalFormat;
 import java.text.Normalizer;
 import java.text.Normalizer.Form;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -153,6 +155,44 @@ public class Utilidades extends Validaciones {
 		} while (!correcto);
 		return ret;
 	}
+	
+	/// Examen 10 Ejercicio 1
+		/**
+		 * Función que pide al usuario que introduce un valor para una hora a partir de
+		 * 3 enteros para la hora del dica, minuto y segundo respectivamente. Si los
+		 * valores introducidos no producen una hora correcta, avisa al usuario y le
+		 * pide que los introduzca de nuevo. Si no lo consigue, devolverá null
+		 *
+		 * @return una hora de la clase java.time.LocalTime o null si hay error
+		 */
+		public static java.time.LocalTime leerHora() {
+			java.time.LocalTime ret = null;
+			int hora, minuto, segundo;
+			boolean correcto = false;
+			Scanner in;
+			do {
+				try {
+					System.out.println("Introduzca un valor para la hora del dia (0...23)");
+					in = new Scanner(System.in, "ISO-8859-1");
+					hora = in.nextInt();
+					System.out.println("Introduzca un valor para el minuto (0...59)");
+					in = new Scanner(System.in, "ISO-8859-1");
+					minuto = in.nextInt();
+					System.out.println("Introduzca un valor para el segundo");
+					in = new Scanner(System.in, "ISO-8859-1");
+					segundo = in.nextInt();
+
+					ret = LocalTime.of(hora, minuto, segundo);
+					correcto = true;
+				} catch (Exception e) {
+					System.out.println(
+							"Hora introducida incorrecta. Primero ingrese la hora, luego el minuto y finalmente el segundo.");
+					correcto = false;
+				}
+			} while (!correcto);
+			return ret;
+		}
+
 
 	//Examen 4 Ejercicio 1
 	/**
@@ -214,5 +254,17 @@ public class Utilidades extends Validaciones {
 			}
 		} while (!correcto);
 		return Float.parseFloat("" + ret);
+	}
+	
+	/***
+	 * Funcion que se le pasa un valor double y devuelve su cadena de caracteres
+	 * asociada con 2 decimales únicamente
+	 * 
+	 * @param valor
+	 * @return
+	 */
+	public static String mostrarDouble2Decimales(double valor) {
+		DecimalFormat df = new DecimalFormat("#.##");
+		return df.format(valor);
 	}
 }

@@ -18,6 +18,10 @@ public class Prueba {
 	private Colegiado[] arbitraje = new Colegiado[3];
 	private Resultado resultado = null;
 	private Participante[] participantes;
+	
+	public Prueba() {
+		
+	}
 
 	public Prueba(long id, String nombre, LocalDate fecha, Lugar lugar, boolean ind) {
 		this.id = id;
@@ -283,6 +287,14 @@ public class Prueba {
 
 		ret = new Prueba(id, nombre, fecha, lugar, ind);
 		return ret;
+	}
+
+	public Atleta getPatrocinador() {
+		return null;
+	}
+
+	public void setPatrocinador(Patrocinador patroc) {
+		
 	}
 
 }
